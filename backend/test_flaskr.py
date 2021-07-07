@@ -122,22 +122,28 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(len(data['questions']), 0)
 
     # get questions based on category
-    # def test_get_questions_based_on_category(self):
-    #     res = self.client().get('/categories/3/questions')
-    #     # data = json.loads(res.data)
+    def test_get_questions_based_on_category(self):
+        res = self.client().get('/categories/2/questions')
 
-    #     self.assertEqual(res.status_code, 200)
-        # self.assertEqual(data['success'], True)
+        self.assertEqual(res.status_code, 200)
 
-        # self.assertEqual(data['currentCategory'], 'Art')
+    def test_get_questions_based_on_category_not_found(self):
+        res = self.client().get('/categories/20/questions')
+
+        self.assertEqual(res.status_code, 404)
 
     # post quiz test
-    # def test_create_quiz(self):
-    #     res = self.client().post('/quizzes', json=self.new_quiz)
-    #     data = json.loads(res.data)
+    def test_create_quiz(self):
+        res = self.client().post('/quizzes', json=self.new_quiz)
+        data = json.loads(res.data)
 
-    #     self.assertEqual(res.status_code, 200)
-    #     self.assertEqual(data['success'], True)
+        self.assertEqual(res.status_code, 200)
+    
+    def test_create_quizn_not_found(self):
+        res = self.client().post('/quizzes/', json=self.new_quiz)
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 404)
 
 # Make the tests conveniently executable
 if __name__ == "__main__":

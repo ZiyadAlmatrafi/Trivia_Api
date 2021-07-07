@@ -188,7 +188,7 @@ def create_app(test_config=None):
             Category.id == category_id).one_or_none()
 
         page = request.args.get('page', 1, type=int)
-        questions = Question.query.filter(Question.category == category_id).paginate(page, per_page=QUESTIONS_PER_PAGE)  
+        questions = Question.query.filter(Question.category==category_id).paginate(page, per_page=QUESTIONS_PER_PAGE)  
         formatted_questions = [question.format() for question in questions.items]
         
         if questions.total==0:
