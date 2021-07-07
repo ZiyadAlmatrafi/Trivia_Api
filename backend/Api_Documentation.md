@@ -21,7 +21,7 @@ The API will return three error types when requests fail:
 ### Endpoints:
 
 # Get Catogaries
-`http://127.0.0.1:5000/categories`
+Method:GET `http://127.0.0.1:5000/categories`
 
 Get all available categories
 - Returns:
@@ -36,7 +36,7 @@ Get all available categories
 }
 ```
 # Get questions
-`http://127.0.0.1:5000/questions`
+Method:GET `http://127.0.0.1:5000/questions`
 Get all available questions, or use `http://127.0.0.1:5000/questions?page=2` to get a specific page.
 - Returns:
 ```
@@ -61,11 +61,11 @@ Get all available questions, or use `http://127.0.0.1:5000/questions?page=2` to 
 }
 ```
 # Delete a question
-`http://127.0.0.1:5000/questions/<int:question_id>`
+Method:DELETE `http://127.0.0.1:5000/questions/<int:question_id>`
 Deletes a specified question using the id of the question
 
 # Create a question
-`http://127.0.0.1:5000/questions`
+Method:POST `http://127.0.0.1:5000/questions`
 Sends a post request in order to add a new question
 - Request Body:
 ```
@@ -78,7 +78,7 @@ Sends a post request in order to add a new question
 ```
 
 # Search questions
-`http://127.0.0.1:5000/questions/search`
+Method:POST `http://127.0.0.1:5000/questions/search`
 - Sends a post request in order to search for a specific question by search term 
 - Request Body:
 ``` 
@@ -103,7 +103,7 @@ Sends a post request in order to add a new question
 }
 ```
 # Get questions based on category
-`http://127.0.0.1:5000/categories/<int:category_id>/questions`
+Method:GET `http://127.0.0.1:5000/categories/<int:category_id>/questions`
 To get all questions under a category
 - Returns:
 ```
@@ -123,7 +123,7 @@ To get all questions under a category
 ```
 
 # Play quiz
-`http://127.0.0.1:5000/quizzes`
+Method:POST `http://127.0.0.1:5000/quizzes`
 - Sends a post request in order to get the next question 
 - Request Body: 
 ```
